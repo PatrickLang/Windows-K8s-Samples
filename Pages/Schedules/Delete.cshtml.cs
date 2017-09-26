@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie.Models;
 
-namespace RazorPagesMovie.Pages.Movies
+namespace RazorPagesMovie.Pages.Schedules
 {
     public class DeleteModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace RazorPagesMovie.Pages.Movies
         }
 
         [BindProperty]
-        public Movie Movie { get; set; }
+        public Schedule Schedule { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,9 +28,9 @@ namespace RazorPagesMovie.Pages.Movies
                 return NotFound();
             }
 
-            Movie = await _context.Movies.SingleOrDefaultAsync(m => m.ID == id);
+            Schedule = await _context.Schedules.SingleOrDefaultAsync(m => m.ID == id);
 
-            if (Movie == null)
+            if (Schedule == null)
             {
                 return NotFound();
             }
@@ -44,11 +44,11 @@ namespace RazorPagesMovie.Pages.Movies
                 return NotFound();
             }
 
-            Movie = await _context.Movies.FindAsync(id);
+            Schedule = await _context.Schedules.FindAsync(id);
 
-            if (Movie != null)
+            if (Schedule != null)
             {
-                _context.Movies.Remove(Movie);
+                _context.Schedules.Remove(Schedule);
                 await _context.SaveChangesAsync();
             }
 
