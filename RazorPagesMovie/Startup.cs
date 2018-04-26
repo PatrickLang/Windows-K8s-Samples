@@ -17,17 +17,6 @@ namespace RazorPagesMovie
         public IConfiguration Configuration { get; }
 
         #region snippet_ConfigureServices
-        public void ConfigureServices(IServiceCollection services)
-        {
-            // requires 
-            // using RazorPagesMovie.Models;
-            // using Microsoft.EntityFrameworkCore;
-
-            services.AddDbContext<MovieContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("MovieContext")));
-            services.AddMvc();
-        }
-        #endregion
 
 #if SQLite
         #region snippet_ConfigureServices2
@@ -42,7 +31,21 @@ namespace RazorPagesMovie
             services.AddMvc();
         }
         #endregion
+#else
+        public void ConfigureServices(IServiceCollection services)
+        {
+            // requires 
+            // using RazorPagesMovie.Models;
+            // using Microsoft.EntityFrameworkCore;
+
+            services.AddDbContext<MovieContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("MovieContext")));
+            services.AddMvc();
+        }
 #endif
+        #endregion
+
+
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
