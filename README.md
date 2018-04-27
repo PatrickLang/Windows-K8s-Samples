@@ -13,6 +13,8 @@ You can build and test this on a Windows 10 machine with Docker for Windows inst
 
 Build it - `docker build --pull -t razorpagesmovie .`
 
+- Alternatively you could `docker pull patricklang/razorpagesmovie:aspnet-2.0.5-nanoserver-1709` instead, and use that in the following steps
+
 Test it - `docker run --name razorpagesmovie --rm -it -p 8000:80 razorpagesmovie`, then browse to (http://127.0.0.1:8000/Movies)
 
 Try it with a local volume - `docker run --name razorpagesmovie --rm -it -p 8000:80 -v $PWD\data:c:\app\data\ razorpagesmovie`. Browse to it, make some changes, then try it again. Changes are persisted, and you can see the SQLite database file at .\data\MvcMovie.db on your machine.
@@ -21,7 +23,9 @@ Try it with a local volume - `docker run --name razorpagesmovie --rm -it -p 8000
 
 ### Deploy in Kubernetes with Flexvolume
 
-> TODO
+> TODO - the volume steps aren't done yet
+
+`kubectl create -f movies.yaml`
 
 
 ## FabrikamFiber
