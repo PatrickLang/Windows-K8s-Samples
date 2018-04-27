@@ -52,15 +52,18 @@ namespace RazorPagesMovie.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("PrivateSchedule");
+                    b.Property<string>("PrivateSchedule")
+                        .HasMaxLength(60);
 
                     b.Property<long>("PrivateScheduleSize");
 
-                    b.Property<string>("PublicSchedule");
+                    b.Property<string>("PublicSchedule")
+                        .HasMaxLength(60);;
 
                     b.Property<long>("PublicScheduleSize");
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .HasMaxLength(60);;
 
                     b.Property<DateTime>("UploadDT");
 

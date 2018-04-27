@@ -13,13 +13,14 @@ namespace RazorPagesMovie.Migrations
                 name: "Schedule",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    PrivateSchedule = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PrivateSchedule = table.Column<string>(type: "nvarchar(60)", nullable: true),
                     PrivateScheduleSize = table.Column<long>(type: "bigint", nullable: false),
-                    PublicSchedule = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PublicSchedule = table.Column<string>(type: "nvarchar(60)", nullable: true),
                     PublicScheduleSize = table.Column<long>(type: "bigint", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Title = table.Column<string>(type: "nvarchar(60)", nullable: true),
                     UploadDT = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>

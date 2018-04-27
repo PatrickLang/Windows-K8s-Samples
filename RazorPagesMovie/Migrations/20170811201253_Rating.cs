@@ -11,7 +11,7 @@ namespace RazorPagesMovie.Migrations
             migrationBuilder.AddColumn<string>(
                 name: "Rating",
                 table: "Movie",
-                type: "nvarchar(max)",
+                type: "nvarchar(5)",
                 nullable: true);
         }
 
