@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movies
+  labels:
+    app: movies
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: movies
+      labels:
+        app: movies
+    spec:
+      containers:
+      - name: movies
+        image: patricklang/razorpagesmovie:aspnet-2.0.5-nanoserver-1709
+        securityContext: # this is a temporary workaround for clusters that try to add a security context
+          privileged: true
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      nodeSelector:
+        beta.kubernetes.io/os: windows
+      terminationMessagePolicy: File
+      schedulerName: default-scheduler
+      serviceAccount: default
+      serviceAccountName: default
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: movies
