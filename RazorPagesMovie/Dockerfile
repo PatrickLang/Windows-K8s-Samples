@@ -1,9 +1,7 @@
 FROM microsoft/dotnet:2.0-sdk AS build
 WORKDIR /app/aspnetapp
 
-# copy csproj and restore as distinct layers
-# COPY *.sln .
-RUN mkdir \db
+# copy csproj and restore as distinct layers to improve cacheability
 COPY ./*.csproj .
 RUN dotnet restore
 
@@ -16,5 +14,6 @@ RUN dotnet publish -o out /p:PublishWithAspNetCoreTargetManifest="false"
 FROM microsoft/dotnet:2.0-runtime AS runtime
 ENV ASPNETCORE_URLS http://+:80
 WORKDIR /app
+RUN mkdir data
 COPY --from=build /app/aspnetapp/out ./
 ENTRYPOINT ["dotnet", "RazorPagesMovie.dll"]
