@@ -35,7 +35,7 @@ This demo includes Visual Studio projects, and needs the following to build:
 - Docker for Windows
 - Visual Studio 2017
 
-
+It's currently maintained in the [patricklang/fabrikamfiber](https://github.com/PatrickLang/fabrikamfiber/tree/k8s-support2) repo.
 
 
 ## Random Tips
