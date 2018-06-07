@@ -114,13 +114,14 @@ kubectl get node
 
 ## Enabling Hyper=V
 
-With Hyper-V isolation, you can run containers using the same, or older Windows Server versions. For example, you can run a container built with the Windows Server 2016 base image such as `microsoft/iis:windowsservercore-ltsc2016` on a Windows Server version 1709 node. It could also run alongside another pod with containers built against Windows Server version 1709 such as `microsoft/iis:windowsservercore-1709`.
+With Hyper-V isolation, you can run containers using the same, or older Windows Server versions. For example, you can run a container built with the Windows Server 2016 base image such as `microsoft/iis:windowsservercore-ltsc2016` on a Windows Server version 1709 node. It could also run alongside another pod with containers built against Windows Server version 1709 such as `microsoft/iis:windowsservercore-1709`. For more details, see the [version compatibility](https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility) article on docs.microsoft.com
 
 
 
 Steps needed:
 
-- Prerequisite: Ensure the Hyper-V role is enabled, and the processor (and virtualization solution) has virtualization support enabled. April 2018 update ([KB4093112](https://support.microsoft.com/en-us/help/4093112/windows-10-update-kb4093112) / version 10.10.16299.371)
+- Prerequisite: Ensure the Hyper-V role is enabled, and the processor (and virtualization solution) has virtualization support enabled. 
+- For Windows Server version 1709 - the April 2018 cumulative update ([KB4093112](https://support.microsoft.com/en-us/help/4093112/windows-10-update-kb4093112) / version 10.10.16299.371) or later
 - Add flag to `kubectl.exe` startup options
 - Add annotation to deployment config
 
