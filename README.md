@@ -40,7 +40,7 @@ It's currently maintained in the [patricklang/fabrikamfiber](https://github.com/
 
 ## Simple web apps using Hyper-V isolation
 
-[HyperVExamples](./HyperVExample) has more details on how to enable the alpha Hyper-V support in Kubernetes 1.10 and later. It includes examples of deploying the same app that was built for 3 different OS versions. Without Hyper-V isolation, only one of the three will work. With Hyper-V isolation, all 3 can run side by side on Windows Server version 1803.
+[HyperVExamples](./HyperVExamples) has more details on how to enable the alpha Hyper-V support in Kubernetes 1.10 and later. It includes examples of deploying the same app that was built for 3 different OS versions. Without Hyper-V isolation, only one of the three will work. With Hyper-V isolation, all 3 can run side by side on Windows Server version 1803.
 
 
 ## Random Tips
