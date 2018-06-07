@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whoami-1803
+  labels:
+    app: whoami-1803
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: whoami-1803
+      labels:
+        app: whoami
+      annotations:
+        experimental.windows.kubernetes.io/isolation-type: hyperv
+    spec:
+      containers:
+      - name: whoami-1803
+        image: stefanscherer/whoami:windows-amd64-1.7.0-1803
+        ports:
+        - containerPort: 8080
+      nodeSelector:
+        beta.kubernetes.io/os: windows
+  selector:
+    matchLabels:
+      app: whoami
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami-1803-svc
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 8080
+  selector:
+    app: whoami-1803
+

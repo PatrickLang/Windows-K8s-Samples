@@ -1,0 +1,9 @@
+# vim giblets
+*.swp
+*.swo
+*~
+# if you run the sample step by step, these will contain secrets
+*secret.json
+# output from acs-engine
+_output/
+translations/
