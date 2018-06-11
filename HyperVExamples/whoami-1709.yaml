@@ -10,7 +10,7 @@ spec:
     metadata:
       name: whoami-1709
       labels:
-        app: whoami
+        app: whoami-1709
       annotations:
         experimental.windows.kubernetes.io/isolation-type: hyperv
     spec:
@@ -23,7 +23,7 @@ spec:
         beta.kubernetes.io/os: windows
   selector:
     matchLabels:
-      app: whoami
+      app: whoami-1709
 ---
 apiVersion: v1
 kind: Service
