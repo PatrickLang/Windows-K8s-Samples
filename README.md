@@ -14,6 +14,8 @@ This is a quick sample to deploy a web server in a replicaset with a loadbalance
 3. Visit `http://<external ip>`
 4. Scale it up with `kubectl scale deploy/iis-1803 --replicas=2`
 
+If you are on a node in the cluster, you can check them all with
+`kubectl get pods -o=jsonpath='{range .items[*]}{.status.podIP}{"\n"}{end}' | xargs -n1 curl > /dev/null`
 
 
 ## RazorPagesMovie
