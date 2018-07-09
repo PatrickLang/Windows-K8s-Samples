@@ -3,6 +3,19 @@
 This is a group of sample apps that I use to build demos. Check the history to get an idea of when each was used last.
 
 
+## IIS
+
+This is a quick sample to deploy a web server in a replicaset with a loadbalancer. You can use it as a quick first test that covers end to end networking and scale up / down.
+
+(This assumes Windows Server version 1803, there are samples for other versions as well in this folder)
+
+1. Create the deployment with `kubectl apply -f iis/iis-1803.yaml`
+2. Wait for the service to have an IP by checking `kubectl get svc` repeatedly
+3. Visit `http://<external ip>`
+4. Scale it up with `kubectl scale deploy/iis-1803 --replicas=2`
+
+
+
 ## RazorPagesMovie
 
 This is based on the samples from https://github.com/aspnet/Docs, specifically https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie . It's a straightforward Razor based application that uses SQL or SQLite for the backing database. The `appconfig.json` in this repo is preconfigured for SQLLite so that only a single container is needed. You can use this to test persistent volume claims by mapping a PV to c:\data.
