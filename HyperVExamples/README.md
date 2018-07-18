@@ -5,12 +5,12 @@ Starting point: https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/
 I did all the steps here using [Ubuntu from the Windows Store](https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6).
 
 
-Get latest build - see https://github.com/Azure/acs-engine/releases/
+> Be sure to update the URL below for the latest release - see https://github.com/Azure/acs-engine/releases/
 
 ```bash
-curl -L https://github.com/Azure/acs-engine/releases/download/v0.15.2/acs-engine-v0.15.2-linux-amd64.tar.gz | tar xvfz -
-sudo mv acs-engine-v0.15.2-linux-amd64/acs-engine /usr/local/bin
-rm -rf acs-engine-v0.15.2-linux-amd64/
+curl -L https://github.com/Azure/acs-engine/releases/download/v0.19.3/acs-engine-v0.19.3-linux-amd64.tar.gz | tar xvfz -
+sudo mv acs-engine-v0.19.3-linux-amd64/acs-engine /usr/local/bin
+rm -rf acs-engine-v0.19.3-linux-amd64/
 ```
 
 Get SSH public key
