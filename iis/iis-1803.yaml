@@ -28,7 +28,7 @@ kind: Service
 metadata:
   name: iis
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
   - protocol: TCP
     port: 80
