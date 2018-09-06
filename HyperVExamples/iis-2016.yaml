@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iis-2016
+  labels:
+    app: iis-2016
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: iis-2016
+      labels:
+        app: iis-2016
+      annotations:
+        experimental.windows.kubernetes.io/isolation-type: hyperv
+    spec:
+      containers:
+      - name: iis
+        image: microsoft/iis:windowsservercore-ltsc2016 
+        ports:
+          - containerPort: 80
+      nodeSelector:
+        "beta.kubernetes.io/os": windows
+  selector:
+    matchLabels:
+      app: iis-2016
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: iis
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80
+  selector:
+    app: iis-2016
