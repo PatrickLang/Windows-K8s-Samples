@@ -15,6 +15,13 @@ spec:
       containers:
       - name: iis
         image: mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019
+        resources:
+          limits:
+            cpu: 1
+            memory: 800m
+          requests:
+            cpu: .1
+            memory: 300m
         ports:
           - containerPort: 80
       nodeSelector:
