@@ -1,4 +1,6 @@
 # vi remnants
 *~
 *.swp
+RazorPagesMovie/bin
 RazorPagesMovie/data
+RazorPagesMovie/obj
