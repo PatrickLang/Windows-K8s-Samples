@@ -18,10 +18,10 @@ spec:
         resources:
           limits:
             cpu: 1
-            memory: 800m
+            memory: 800Mi
           requests:
             cpu: .1
-            memory: 300m
+            memory: 300Mi
         ports:
           - containerPort: 80
       nodeSelector:
