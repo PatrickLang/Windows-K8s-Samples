@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sshwin
+  labels:
+    app: sshwin
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: sshwin
+      labels:
+        app: sshwin
+    spec:
+      containers:
+      - name: servercore
+        image: mcr.microsoft.com/windows/servercore:ltsc2019
+        command:
+        - powershell.exe
+        - -command
+        - "ping -t localhost | out-null"
+        resources:
+          limits:
+            cpu: 1
+            memory: 800Mi
+          requests:
+            cpu: .1
+            memory: 300Mi
+      nodeSelector:
+        "beta.kubernetes.io/os": windows # for 1.16+ you can remove beta.
+  selector:
+    matchLabels:
+      app: sshwin

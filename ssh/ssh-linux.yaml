@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sshlinux
+  labels:
+    app: sshlinux
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: sshlinux
+      labels:
+        app: sshlinux
+    spec:
+      containers:
+      - name: debian
+        image: debian:stable
+        command: ["/bin/bash"]
+        args: ["-c","apt update ; apt install -y openssh-client ; while :; do echo 'Waiting for CTRL+C'; sleep 1; done"]
+        resources:
+          limits:
+            cpu: 1
+            memory: 500Mi
+          requests:
+            cpu: .1
+            memory: 100Mi
+      nodeSelector:
+        "beta.kubernetes.io/os": linux # for 1.16+ you can remove beta.
+  selector:
+    matchLabels:
+      app: sshlinux
