@@ -27,7 +27,7 @@ spec:
             cpu: .1
             memory: 300Mi
       nodeSelector:
-        "beta.kubernetes.io/os": windows # for 1.16+ you can remove beta.
+        "beta.kubernetes.io/os": windows
   selector:
     matchLabels:
       app: sshwin
