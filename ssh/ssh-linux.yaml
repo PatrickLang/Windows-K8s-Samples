@@ -25,7 +25,7 @@ spec:
             cpu: .1
             memory: 100Mi
       nodeSelector:
-        "beta.kubernetes.io/os": linux # for 1.16+ you can remove beta.
+        "beta.kubernetes.io/os": linux
   selector:
     matchLabels:
       app: sshlinux
