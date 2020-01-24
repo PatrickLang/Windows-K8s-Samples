@@ -50,8 +50,9 @@ This demo includes Visual Studio projects, and needs the following to build:
 - Docker for Windows
 - Visual Studio 2017
 
-It's currently maintained in the [patricklang/fabrikamfiber](https://github.com/PatrickLang/fabrikamfiber/tree/k8s-support2) repo.
+It's currently maintained in the [patricklang/fabrikamfiber](https://github.com/PatrickLang/fabrikamfiber/) repo.
 
+**This was presented in a hands-on workshop at Kubecon - [video](https://www.youtube.com/watch?v=i4SrVONbghA) and [slides](https://static.sched.com/hosted_files/kccna18/1f/Deploying%20Windows%20Apps.pdf) are available.**
 
 ## Simple web apps using Hyper-V isolation
 
